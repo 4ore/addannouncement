@@ -8,16 +8,18 @@ export class AddForm extends Component {
   state = {
     step: 1,
     header: "",
+    headerError: "",
     description: "",
-    status: true,
+    status: "",
     phoneNumber: "",
+    phoneNumberError: "",
     email: "",
     photo: "",
-    checkbox1: true,
-    checkbox2: true,
-    checkbox3: true,
-    checkbox4: true,
-    checkbox5: true,
+    checkbox1: "",
+    checkbox2: "",
+    checkbox3: "",
+    checkbox4: "",
+    checkbox5: "",
   };
 
   nextStep = () => {
@@ -34,6 +36,7 @@ export class AddForm extends Component {
     });
   };
 
+
   handleChange = (input) => (e) => {
     this.setState({ [input]: e.target.value });
   };
@@ -42,6 +45,7 @@ export class AddForm extends Component {
     const { step } = this.state;
     const {
       header,
+      headerError,
       description,
       email,
       phoneNumber,
@@ -55,6 +59,7 @@ export class AddForm extends Component {
     } = this.state;
     const values = {
       header,
+      headerError,
       description,
       email,
       phoneNumber,

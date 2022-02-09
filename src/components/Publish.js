@@ -2,10 +2,27 @@ import React, { Component } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 
 export class Publish extends Component {
+  
   back = (e) => {
     e.preventDefault();
     this.props.prevStep();
   };
+  saveData = (e) =>{
+    const FormData = {
+      header : this.props.values.header,
+      description: this.props.values.description,
+      status: this.props.values.status,
+      phoneNumber: this.props.values.phoneNumber,
+      email: this.props.values.email,
+      photo: this.props.values.photo,
+      checkbox1: this.props.values.checkbox1,
+      checkbox2: this.props.values.checkbox2,
+      checkbox3: this.props.values.checkbox3,
+      checkbox4: this.props.values.checkbox4,
+      checkbox5: this.props.values.checkbox1
+    }
+    console.log(FormData)
+  }
   render() {
     const { values, handleChange } = this.props;
     return (
@@ -55,6 +72,9 @@ export class Publish extends Component {
         </Form>
         <Button color="false" onClick={this.back}>
           Prev
+        </Button>
+        <Button color="primary" onClick={this.saveData}>
+          Save
         </Button>
       </div>
     );

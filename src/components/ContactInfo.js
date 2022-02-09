@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import { useForm } from "react-hook-form";
 import { Input, Button } from "reactstrap";
 
 export class ContactInfo extends Component {
   continue = (e) => {
     e.preventDefault();
+    
+    if(this.props.values.phoneNumber){
     this.props.nextStep();
+    } 
   };
 
   back = (e) => {
@@ -15,6 +17,7 @@ export class ContactInfo extends Component {
 
   render() {
     const { values, handleChange } = this.props;
+    if(!values.phoneNumber){this.phoneNumberError = 'Обязательное поле'}
     return (
       <div>
         <h1>Contact Info</h1>
@@ -24,6 +27,7 @@ export class ContactInfo extends Component {
           placeholder="номер телефона"
           required
         />
+        <div>{this.phoneNumberError}</div>
         <br />
         <Input
           onChange={handleChange("email")}

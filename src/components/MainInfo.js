@@ -1,15 +1,17 @@
 import React, { Component } from "react";
-import { useForm } from "react-hook-form";
 import { Input, FormGroup, Col, Label, Button } from "reactstrap";
 
 export class MainInfo extends Component {
   continue = (e) => {
     e.preventDefault();
+    if(this.props.values.header){
     this.props.nextStep();
+    }
   };
 
   render() {
     const { values, handleChange } = this.props;
+    if(!values.header){this.headerError = 'Обязательное поле'}
     return (
       <div>
         <h1>Main Info</h1>
@@ -19,6 +21,8 @@ export class MainInfo extends Component {
           defaultValue={values.header}
           required
         />
+        <div>{this.headerError}</div>
+        
         <br />
         <Input
           onChange={handleChange("description")}
@@ -32,7 +36,8 @@ export class MainInfo extends Component {
             Статус
           </Label>
           <Col sm={10}>
-            <Input id="exampleSelect" name="select" type="select">
+            <Input id="exampleSelect" name="select" type="select" onChange={handleChange("status")}
+          defaultValue={values.description}>
               <option>On</option>
               <option>Off</option>
             </Input>

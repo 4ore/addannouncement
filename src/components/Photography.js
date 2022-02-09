@@ -23,6 +23,30 @@ export class Photography extends Component {
             type="file"
             onChange={handleChange("photo")}
           />
+           <Input
+            id="exampleFile"
+            name="file"
+            type="file"
+            onChange={handleChange("photo")}
+          />
+           <Input
+            id="exampleFile"
+            name="file"
+            type="file"
+            onChange={handleChange("photo")}
+          />
+           <Input
+            id="exampleFile"
+            name="file"
+            type="file"
+            onChange={handleChange("photo")}
+          />
+           <Input
+            id="exampleFile"
+            name="file"
+            type="file"
+            onChange={handleChange("photo")}
+          />
           <FormText>
             This is some placeholder block-level help text for the above input.
             It's a bit lighter and easily wraps to a new line.
